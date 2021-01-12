@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+
+		body{
+			margin-bottom: 3000px;
+		}
+
+		.kontol{
+			display: none;
+		}
+
+		.kotak{
+			width: 100px;
+			height: 100px;
+			margin: 50px auto;
+			border: 1px solid black;
+			position: relative;
+		}
+
+		#button{
+			position: absolute;
+			bottom: 10px;
+		}
+
+
+		.scrollToTopBtn {
+		  width: 35px;
+		  height: 35px;
+		  /* place it at the bottom right corner */
+		  position: fixed;
+		  bottom: 50px;
+		  right: 50px;
+		  /* keep it at the top of everything else */
+		  z-index: 100;
+		  /* hide it at first */
+		  display: none;
+		}
+	</style>
+</head>
+<body>
+	<div class="kotak">
+		<button id="button">Klik</button>
+	</div>
+	<button class="scrollToTopBtn">Top</button>
+	<script>
+		const button = document.querySelector("#button");
+		const scrollToTopBtn = document.querySelector(".scrollToTopBtn");
+		const rootElement = document.documentElement;
+
+		function handleScroll(){
+			const scrollTotal = rootElement.scrollHeight - rootElement.clientHeight;
+			if ((rootElement.scrollTop / scrollTotal) > 0.02){
+			    scrollToTopBtn.style.display = "block";
+			}else{
+				scrollToTopBtn.style.display = "none";
+			}
+		}
+
+		function scrollToTop(){
+			rootElement.scrollTo({
+				top:0,
+				behavior:"smooth"
+			})
+		}
+
+		scrollToTopBtn.addEventListener("click", scrollToTop);
+		document.addEventListener("scroll", handleScroll);
+
+
+		button.addEventListener("click", function(){
+			document.querySelector(".kotak").classList.add("kontol");
+			if (document.querySelector(".kotak").classList.contains("kontol")){
+				setTimeout(() => {
+					document.querySelector(".kotak").classList.remove("kontol")
+				}, localStorage.setItem("timeout", 12000));
+			}
+		});
+
+	</script>
+</body>
+</html>

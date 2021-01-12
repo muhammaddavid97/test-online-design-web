@@ -1,0 +1,129 @@
+/* Styling Navbar */
+#content-navbar{
+	width: 720px;
+	margin: 10px auto;
+	padding: 5px;
+	box-sizing: border-box;
+}
+
+.content{
+	padding: 16px;
+}
+.sticky{
+	position: fixed;
+	top: 0;
+	width: 100%;
+}
+.sticky + .content{
+	padding-top: 60px;
+}
+@media(min-width: 480px) and (max-width: 768px){
+	#content-navbar{
+		display: flex;
+		width: 85%;
+		flex-wrap: wrap;
+	}
+	#content-navbar p{
+		font-size: 13px;
+		letter-spacing: 0.1rem;
+		word-spacing: -0.1rem;
+		text-align: left;
+		align-items: center;
+	}
+}
+
+
+
+/* Styling Hero Image */
+
+#hero-banner{
+	background-image: url(image/cermati.jpg);
+	height: 500px;
+}
+
+@media(max-width: 640px){
+	#hero-banner{
+		position: relative;
+	}
+	#logo{
+		position: absolute;
+		top: 195px;
+		width: 30px;
+		height: 30px;
+	}
+}
+
+/* Styling Content Page */
+
+main #title #p2{
+	text-indent: 2.79rem;
+}
+
+#content-page #content h1 {
+	text-indent: 0.2rem
+}
+
+#content-page #content p {
+	letter-spacing: 1px;
+}
+
+@media(min-width: 480px) and (max-width: 960px){
+	#content-page{
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		align-items: start;
+		width: 70%;
+		margin: 0px auto;
+	}
+	#content{
+		width: 45%;
+	}
+}
+
+@media(max-width: 640px){
+	#content-page{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		width: 65%;
+		box-sizing: border-box;
+	}
+	#content{
+		width: 90%;
+		margin: 10px;
+		box-sizing: border-box;
+	}
+}
+
+#newsletter{
+	position: absolute;
+	bottom: 0px;
+}
+
+
+/* Styling content-newsletter */
+
+.newsletter-lost{
+	display: none;
+}
+
+
+@media(min-width: 480px) and (max-width: 960px){
+	#newsletter{
+		width: 100%;
+	}
+	#content-newsletter{
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+	}
+	#content-newsletter #input{
+		width: 100%;
+	}
+	#content-newsletter #button{
+		width: 100%;
+		margin-left: -2px;
+		margin-top: 5px;
+	}
+}
